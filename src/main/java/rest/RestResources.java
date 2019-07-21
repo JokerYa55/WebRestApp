@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
@@ -45,6 +46,7 @@ import org.apache.log4j.Logger;
  * @author vasil
  */
 @Path("/")
+@Stateless
 public class RestResources {
 
     Logger log = Logger.getLogger(getClass().getName());
@@ -90,15 +92,6 @@ public class RestResources {
         return Response.temporaryRedirect(new URI("/test")).build();
     }
 
-    /**
-     * PUT method for updating or creating an instance of RestResources
-     *
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(String content) {
-    }
 
     @GET
     @Path("/test")
